@@ -7,7 +7,6 @@ var session = require('express-session');
 var app = module.exports = express();
 app.use(express.static(__dirname + '/../public'));
 var massiveInstance = massive.connectSync({connectionString: 'postgres://postgres:'+config.postgresPass+'@localhost/Contracts'});
-app.use(bodyParser.json());
 app.set('db', massiveInstance);
 var db = app.get('db');
 var corsOptions = {origin: 'http://localhost:3000'};
@@ -20,11 +19,11 @@ app.use(session({
 }));
 app.use(bodyParser.json());
 
-
-app.get('/contracts', serverCtrl.getApartments);
-app.post('/user', serverCtrl.createUser);
+//Endpoints
+app.get('/apartments', serverCtrl.getApartments);
+app.post('/user', serverCtrl.loginUser);
 app.post('/apartment', serverCtrl.createApartment);
-
+app.post('/apartment/delete', serverCtrl.deleteApt);
 
 
 
