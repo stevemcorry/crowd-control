@@ -1,18 +1,98 @@
-angular.module('myApp').controller('mainCtrl', function($scope) {
+angular.module('myApp').controller('mainCtrl', function($scope,$http) {
 
-  $scope.allApartments = [];
-  //add apartment box
-  $scope.addApt = function(name,complexName,perRoom){
-    if(name&&complexName&&perRoom){
-      $scope.allApartments.unshift({
-        name: name,
-        complex: complexName,
-        perRoom: perRoom + " in the room"
-      });
-  //resets all input values
-    $scope.name = '';
-    $scope.complexName = '';
-    $scope.perRoom = '';
+  $scope.getApartments = function() {
+    $http({
+      method: 'GET',
+      url: 'http://localhost:3000/apartments'
+    }).then(function(result) {
+      $scope.apartments = result.data;
+    });
+  };
+
+  $scope.getApartments();
+
+  $scope.getComplexes = function() {
+    return $http({
+      method: "GET",
+      url: 'http://localhost:3000/complexes'
+    }).then(function(result) {
+      $scope.complexes = result.data;
+    });
+  };
+
+  $scope.getComplexes();
+
+  $scope.loginCheck = function() {
+    if($scope.loggedIn){
+      document.querySelector('.aptForm').style.display = 'flex';
+    } else {
+      document.querySelector('.loginForm').style.display = 'flex';
     }
+  };
+
+  $scope.login = function(email, password, loginName) {
+    if(email && password && loginName){
+      $http({
+        method: 'POST',
+        url: 'http://localhost:3000/user',
+        data: {
+          email: email,
+          password: password,
+          name: loginName
+        }
+      }).then(function(result) {
+        $scope.user = result.data;
+        $scope.loggedIn = result.data.id;
+      });
+    } else {
+      alert('Please fill out all info');
+    }
+  };
+
+  $scope.addApt = function(complexName,perRoom,singleRoom,gender,rent){
+    if($scope.user){
+      if(complexName&&perRoom&&gender&&rent){
+        $http({
+          method: 'POST',
+          url: 'http://localhost:3000/apartment',
+          data: {
+            user_id: 13,
+            complex: complexName,
+            perRoom: perRoom,
+            singleRoom: singleRoom,
+            gender: gender,
+            rent: rent
+          }
+        }).then(function() {
+          $scope.getApartments();
+        });
+      }
+    } $scope.getApartments();
+  };
+
+  $scope.deleteApt = function(id) {
+    var aptId = $scope.apartments.filter(function(value) {
+      return(value.id === id);
+    });
+    console.log(aptId[0].user_id);
+    if($scope.loggedIn === aptId[0].user_id){
+      $http({
+        method: "POST",
+        url: 'http://localhost:3000/apartment/delete',
+        data: {
+          id: id,
+          user_id: aptId[0].user_id
+        }
+      });
+      $scope.getApartments();
+    }
+    $scope.getApartments();
+  };
+
+  $scope.detailedApt = function(id) {
+    var aptId = $scope.apartments.filter(function(value) {
+      return(value.id === id);
+    });
+    $scope.specificApt = aptId[0];
   };
 });

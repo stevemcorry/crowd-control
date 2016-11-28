@@ -19,37 +19,10 @@ $(document).ready(function(){
   });
 
 
-//Module open and close
-var modal = $('.aptForm');
-var btn = $('.addApt');
-var close = $('.close');
-var submit =$('.submitApt');
-//close modal by clicking X
-close.on('click',function() {
-  modal.css('display','none');
+$('.footerLogin').on('click',function() {
+  $('.loginForm').css('display','flex');
 });
-//closes modal after submitting
-submit.on('click',function() {
-  if($('.submitName').val()&&$('.submitPerRoom').val()&&$('.submitComplex').val()){
-  modal.css('display','none');
-}
-});
-//close modal by clicking anywhere else
- // $($('.aptForm')).on('click',function() {
- //   modal.css('display','none');
- // });
- //open modal
- btn.on('click',function() {
-   modal.css('display','flex');
- });
 
-// adds an apt box
 
-// var boxAptCount = 0;
-// $('.addApt').on('click', function() {
-//     $('.meat').append("<div class='boxApt'>");
-//     boxAptCount++;
-//
-// });
 
 });

@@ -28,6 +28,7 @@ header {
   align-items: center;
   justify-content: space-between;
   transition: height 1s;
+  background: rgba(255, 255, 255, 0.27);
 }
 .headerOff{
   display: none;
@@ -59,7 +60,7 @@ button {
 }
 .smallHeader{
 height: 40px;
-background: rgba(255, 255, 255, 0.27)
+background: rgba(255, 255, 255, 0)
 }
 .smallLogo{
   font-size: 24px;
@@ -92,15 +93,16 @@ main {
   background-color: lightcoral;
   border: none;
   font-size: 1.3em;
+  text-align: center;
   border-radius: 50%;
   color: lightcoral;
-  transition: all .2s ease-in;
+  transition: all .3s ease-in-out;
 }
 .input:focus {
-    width: 16em;
+    width: 15vw;
     padding-left: 1em;
     padding-right: 2.5em;
-    transition: all .2s ease-in;
+    transition: all .3s ease-in-out;
     border-radius: 10px;
     color: white;
   }
@@ -109,11 +111,15 @@ main {
   height: auto;
   margin-top: 85px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
   transition: width .18s;
 }
+.specificApt{
+}
 .meat {
-height: 100vh;
+height: auto;
 width: 60vw;
 margin-top: 85px;
 border: 5px outset hsla(172, 68%, 77%, 0.51);
@@ -124,8 +130,8 @@ flex-wrap: wrap;
 align-items: flex-start;
 }
 .boxApt{
-  height: 50px;
-  width: 15vw;
+  height: auto;
+  width: 150px;
   border: 1px solid green;
   margin: 23px;
 }
@@ -138,17 +144,16 @@ align-items: flex-start;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: none;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 .fillForm{
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 40vw;
-    height: 50vh;
+    height: 70vh;
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
@@ -164,6 +169,9 @@ align-items: flex-start;
   margin: 10px;
   border-radius: 5px;
 }
+.submitApt{
+  height: 5vh !important;
+}
 .close {
     color: #aaa;
     float: right;
@@ -174,6 +182,55 @@ align-items: flex-start;
 
 .close:hover,
 .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*                          Login Modal                            */
+
+.loginForm{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.fillLogin{
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40vw;
+    height: 50vh;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.fillLogin input{
+  background: #e8e8e8;
+  font-family: lora;
+  width: 30vw !important;
+  height: 5vh;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.closeLog {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+.closeLog:hover,
+.closeLog:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;

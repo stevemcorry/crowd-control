@@ -14,94 +14,33 @@
 <body id="animate-area">
   <header>
     <p class="topTitle">CROWD CONTROL</p>
-    <button type="button">Login</button>
-    <button type="button" name="button" class="addApt">Add Apartment</button>
+    <button type="button" name="button" ui-sref='/'>Contracts</button>
+    <button type="button" name="button" ui-sref='home'>Ratings</button>
+    <button type="button" name="button" class="addApt" ng-click='loginCheck()'>Add Apartment</button>
   </header>
-  <main>
-    <div class="leftBar">
-      <input class="input"/><span class="fa"></span>
-    </div>
-    <div class="meat">
-      <div class="boxApt" ng-repeat='apt in allApartments'>
-        {{apt.name}}<br>
-        {{apt.complex}}<br>
-        {{apt.perRoom}}
+    <ui-view>
+      <main>
+      <div class="leftBar">
+        <input class="input" ng-model='aptFilter.name' placeholder="Name"/>
+        <input class="input" ng-model='aptFilter.complex' placeholder="Apartment"/>
+        <input class="input" ng-model='aptFilter.rent' placeholder="Rent"/>
+        <select class="input-medium" ng-model="rentOrder">
+          <option value="+">Descending</option>
+          <option value="">Ascending</option>
+        </select>
       </div>
-    </div>
-    <div class="rightBar">
+      <new-apt></new-apt>
+      <div class="rightBar">
+        <specific-apt></specific-apt>
+      </div>
+      </main>
+    </ui-view>
 
-    </div>
-
-  </main>
-  <div class="aptForm">
-    <form class="fillForm">
-      <span class="close">x</span>
-      <input type="text" class='submitName' placeholder='Your name' ng-model='name' required><br>
-      <input type="text" class='submitComplex' list='Complexes'placeholder='Apartment Complex' value="Complex" ng-model='complexName' required>
-      <datalist id="Complexes">
-        <option value="King Henry">
-        <option value="Liberty Square">
-        <option value="The Village">
-        <option value="Alpine Village">
-        <option value="Arcadia">
-        <option value="Bay Terrace">
-        <option value="Brookview">
-        <option value="Centennial">
-        <option value="Centennial II">
-        <option value="Cornerstone">
-        <option value="The Isles">
-        <option value="The Brittany">
-        <option value="The Omni">
-        <option value="Riviera">
-        <option value="Roman Gardens">
-        <option value="Southridge">
-        <option value="Park Place">
-        <option value="Glenwood">
-        <option value="Raintree">
-        <option value="Carriage Cove">
-        <option value="Woodland Heights">
-        <option value="Pacific Heights">
-        <option value="University Villa">
-        <option value="Sparks Apartments">
-        <option value="Cinnamon Tree">
-        <option value="The Colony">
-        <option value="Crestwood">
-        <option value="Fleur De Lis">
-        <option value="College Park">
-        <option value="Pioneer Apartments">
-        <option value="Riverstone">
-        <option value="Foxwood Apartments">
-        <option value="Foxwood Condos">
-        <option value="Manavu">
-        <option value="Belmont">
-        <option value="Bendick Arms">
-        <option value="Brownstone">
-        <option value="Chatham Towne">
-        <option value="Chatsworth">
-        <option value="Chelsea">
-        <option value="Millrace">
-        <option value="Mountainwood">
-        <option value="Old Mill">
-        <option value="Pines">
-        <option value="Promenade">
-        <option value="Reynolds">
-        <option value="Riverside">
-        <option value="Sherwood">
-        <option value="Sierra">
-        <option value="Stonebridge">
-        <option value="Township">
-        <option value="University Avenue Condos">
-        <option value="Windsor Park">
-        <option value="Winter Quarters">
-        <option value="Aspen Ridge">
-      </datalist><br>
-      <input type="number" class='submitPerRoom' placeholder='How many in your room?' min='1' max='4' ng-model='perRoom' required><br>
-      <input type='submit' ng-click="addApt(name,complexName,perRoom)" class='submitApt'>Add Apartment
-    </form>
-  </div>
+ <add-module></add-module>
+  <login-module></login-module>
 
   <footer>
-    <p>Show your appt on social media</p>
+    <button class="footerLogin">Login</button>
       <div class="logoList">
         <ul>
         <li>

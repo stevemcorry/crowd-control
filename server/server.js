@@ -21,10 +21,10 @@ app.use(bodyParser.json());
 
 //Endpoints
 app.get('/apartments', serverCtrl.getApartments);
+app.get('/complexes', serverCtrl.getComplexes);
 app.post('/user', serverCtrl.loginUser);
 app.post('/apartment', serverCtrl.createApartment);
 app.post('/apartment/delete', serverCtrl.deleteApt);
-
 
 
 app.listen(3000,function() {

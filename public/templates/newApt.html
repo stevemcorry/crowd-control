@@ -1,0 +1,11 @@
+<div class="meat">
+  <div class="boxApt" ng-repeat='apt in apartments | filter: aptFilter | orderBy: rent : rentOrder'
+  ng-click='detailedApt(apt.id)'>
+    {{apt.name}}<br>
+    {{apt.complex}}<br>
+    {{apt.perroom}} <br>
+    {{apt.singleroom}} <br>
+    {{apt.gender}} <br>
+    {{apt.rent}}
+  </div>
+</div>
