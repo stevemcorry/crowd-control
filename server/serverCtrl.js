@@ -13,16 +13,20 @@ module.exports = ({
     });
   },
   loginUser: function(req,res,next) {
-    db.check_user([req.body.email, req.body.password, req.body.name] , function(err, user) {
-      if(user[0]){
-        req.session.currentUser = user[0];
-        console.log(req.session.currentUser);
-        res.send(user[0]);
+    db.check_email([req.body.email] , function(err,email) {
+      if(email[0]){
+        db.check_user([req.body.email, req.body.password, req.body.name] , function(err, user) {
+          if(user[0]){
+            req.session.currentUser = user[0];
+            res.send(user[0]);
+          } else {
+            res.send('nope');
+          }
+        });
       } else {
         db.create_user([req.body.email, req.body.password, req.body.name] , function(err, user) {
           res.send(user[0]);
-          console.log(user[0]);
-          req.session.currentUser = user;
+          req.session.currentUser = user[0];
         });
       }
     });

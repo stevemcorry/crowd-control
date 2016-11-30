@@ -44,7 +44,7 @@ angular.module('myApp', ['ui.router'])
       templateUrl: '../templates/loginModule.html',
       link: function(scope,element,attr) {
         $('.submitUser').on('click', function() {
-          if($('.loginEmail').val()&&$('.loginPassword').val()){
+          if(scope.user){
             $('.loginForm').css('display','none');
             $('.aptForm').css('display','flex');
           }

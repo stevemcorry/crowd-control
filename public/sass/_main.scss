@@ -1,0 +1,66 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+.widen{
+  width: 30vw !important;
+}
+/*.leftBar:hover, .rightBar:hover{
+  width: 50vw;
+  transition: all .2s ease-in;
+
+}*/
+.input {
+  cursor: pointer;
+  cursor: default;
+  outline: none;
+  height: 3em;
+  width: 3em;
+  background-color: lightcoral;
+  border: none;
+  font-size: 1.3em;
+  text-align: center;
+  border-radius: 50%;
+  color: lightcoral;
+  transition: all .3s ease-in-out;
+}
+.input:focus {
+    width: 15vw;
+    padding-left: 1em;
+    padding-right: 2.5em;
+    transition: all .3s ease-in-out;
+    border-radius: 10px;
+    color: white;
+  }
+.leftBar, .rightBar{
+  width: 20vw;
+  height: auto;
+  margin-top: 85px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  transition: width .18s;
+}
+.specificApt{
+}
+.meat {
+height: auto;
+width: 60vw;
+margin-top: 85px;
+border: 5px outset hsla(172, 68%, 77%, 0.51);
+border-radius: 5px;
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+align-items: flex-start;
+}
+.boxApt{
+  height: 4.5em;
+  width: 7em;
+  text-align: center;
+  font: 30px shanti;
+  border: 1px solid green;
+  margin: 20px;
+  padding: auto;
+}

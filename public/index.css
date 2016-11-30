@@ -130,10 +130,13 @@ flex-wrap: wrap;
 align-items: flex-start;
 }
 .boxApt{
-  height: auto;
-  width: 150px;
+  height: 4.5em;
+  width: 7em;
+  text-align: center;
+  font: 30px shanti;
   border: 1px solid green;
-  margin: 23px;
+  margin: 20px;
+  padding: auto;
 }
 /*                               Modal                             */
 .aptForm{

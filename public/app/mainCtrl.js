@@ -41,9 +41,15 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
           name: loginName
         }
       }).then(function(result) {
-        $scope.user = result.data;
-        $scope.loggedIn = result.data.id;
-      });
+          if(result.data === 'nope'){
+            alert('incorrect info');
+          } else {
+            $scope.user = result.data;
+            $scope.loggedIn = result.data.id;
+            document.querySelector('.aptForm').style.display = 'flex';
+            document.querySelector('.loginForm').style.display = 'none';
+          }
+        });
     } else {
       alert('Please fill out all info');
     }
@@ -85,6 +91,9 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
         }
       });
       $scope.getApartments();
+      $scope.specificApt = [];
+    } else {
+      alert('Please login to the correct account to delete this post');
     }
     $scope.getApartments();
   };
@@ -94,5 +103,18 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
       return(value.id === id);
     });
     $scope.specificApt = aptId[0];
+  };
+
+  $scope.hoverStop = function() {
+    $scope.stopHover = true;
+  };
+
+  $scope.detailApt = function(id) {
+    if($scope.stopHover !== true){
+      var aptId = $scope.apartments.filter(function(value) {
+        return(value.id === id);
+      });
+      $scope.specificApt = aptId[0];
+    }
   };
 });

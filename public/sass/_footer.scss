@@ -1,0 +1,26 @@
+footer {
+  position: fixed;;
+  bottom:0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.logo {
+  height: 50px;
+  width: 50px;
+}
+.logoList {
+  display: flex;
+  margin-right: 25px;
+}
+footer p{
+  font-family: lora;
+}
+footer ul {
+  display: flex;
+}
+footer ul li{
+  list-style: none;
+  position: relative;
+}
