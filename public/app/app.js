@@ -2,13 +2,11 @@ angular.module('myApp', ['ui.router'])
   .config(function($urlRouterProvider, $stateProvider) {
     $stateProvider
     .state('/', {
-      url: '/',
-      controller: 'mainCtrl'
+      url: '/'
     })
-    .state('home', {
-      url: '/home',
-      templateUrl: 'views/home.html',
-      controller: 'mainCtrl'
+    .state('ratings', {
+      url: '/ratings',
+      templateUrl: 'views/ratings.html',
     });
     $urlRouterProvider.otherwise("/");
   })
@@ -31,10 +29,11 @@ angular.module('myApp', ['ui.router'])
         });
 
         $('.submitApt').on('click',function() {
-          if($('.submitPerRoom').val()&&$('.submitComplex').val()){
+          if($('.submitRent').val()&&$('.submitComplex').val()){
             $('.aptForm').css('display','none');
           }
         });
+
       }
     };
   })
@@ -46,8 +45,11 @@ angular.module('myApp', ['ui.router'])
         $('.submitUser').on('click', function() {
           if(scope.user){
             $('.loginForm').css('display','none');
-            $('.aptForm').css('display','flex');
           }
+        });
+        $('.close').on('click',function() {
+          $('.loginForm').css('display','none');
+          $('.aptForm').css('display','none');
         });
       }
     };
@@ -55,6 +57,16 @@ angular.module('myApp', ['ui.router'])
   .directive('specificApt',function() {
     return {
       restrict: "E",
-      templateUrl: '../templates/specificApt.html'
+      templateUrl: '../templates/specificApt.html',
+      link: function(scope,element,attr) {
+
+        // $('.boxApt').on('mouseover', function() {
+        //   $('.aptDetails').css('display','block');
+        // });
+        // $('.boxApt').on('mouseleave', function() {
+        //   $('.aptDetails').css('display','none');
+        // });
+
+      }
     };
   });

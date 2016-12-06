@@ -1,10 +1,10 @@
 <div class="specificApt"  ng-mouseover='hidden=true' ng-mouseleave='hidden=false'>
-  <div ng-click='deleteApt(specificApt.id)' ng-show='hidden'>Delete</div>
-  {{specificApt.name}} <br>
-  {{specificApt.email}} <br>
-  {{specificApt.complex}} <br>
-  {{specificApt.gender}} <br>
-  {{specificApt.perroom}} <br>
-  {{specificApt.singleroom}} <br>
-  {{specificApt.rent}}
+  Seller: {{specificApt.name}} <br>
+  Sellers Email: {{specificApt.email}} <br>
+  Apartment Complex: {{specificApt.complex}} <br>
+  Gender: {{specificApt.gender}} <br>
+  Persons per Room: {{specificApt.perroom}} <br>
+  Married Housing: {{specificApt.singleroom}} <br>
+  Monthly Rent: ${{specificApt.rent}}
+  <div ng-click='deleteApt(specificApt.id)'>Delete</div>
 </div>

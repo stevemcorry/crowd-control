@@ -1,8 +1,14 @@
-<div class="meat">
-  <div class="boxApt" ng-repeat='apt in apartments | filter: aptFilter | orderBy: rent : rentOrder'
-  ng-click='detailedApt(apt.id); hoverStop(); getApartments()' ng-mouseover='detailApt(apt.id)'>
-    {{apt.complex}}<br>
-    {{apt.gender}} <br>
-    ${{apt.rent}}
+<div class="meat" >
+  <div class="boxApt" ng-repeat="apt in apartments | filter: aptFilter | orderBy: order: rentOrder"
+   ng-mouseover='detailApt(apt.id); details=true' ng-mouseleave='details=false'>
+    <div class="apt" ng-hide='details'>
+      <div class="aptPicture">
+        <img class="pic" src="{{apt.image}}" width="200px"height="150px">
+      </div>
+      {{apt.complex}}<br>
+      {{apt.gender}} <br>
+      ${{apt.rent}}
+    </div>
+    <specific-apt class="aptDetails" ng-show='details'></specific-apt>
   </div>
 </div>

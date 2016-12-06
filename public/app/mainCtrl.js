@@ -6,6 +6,7 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
       url: 'http://localhost:3000/apartments'
     }).then(function(result) {
       $scope.apartments = result.data;
+      console.log(result.data);
     });
   };
 
@@ -22,10 +23,21 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
 
   $scope.getComplexes();
 
+  $scope.orderMe = function(x) {
+    $scope.order = x;
+  };
+
+  $scope.order = '-id';
+
+  $scope.loginShow = function() {
+    document.querySelector('.loginForm').style.display = 'flex';
+  };
+
   $scope.loginCheck = function() {
     if($scope.loggedIn){
       document.querySelector('.aptForm').style.display = 'flex';
     } else {
+      document.querySelector('.aptForm').style.display = 'flex';
       document.querySelector('.loginForm').style.display = 'flex';
     }
   };
@@ -42,11 +54,10 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
         }
       }).then(function(result) {
           if(result.data === 'nope'){
-            alert('incorrect info');
+            alert('incorrect information');
           } else {
             $scope.user = result.data;
             $scope.loggedIn = result.data.id;
-            document.querySelector('.aptForm').style.display = 'flex';
             document.querySelector('.loginForm').style.display = 'none';
           }
         });
@@ -57,7 +68,11 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
 
   $scope.addApt = function(complexName,perRoom,singleRoom,gender,rent){
     if($scope.user){
-      if(complexName&&perRoom&&gender&&rent){
+      if(complexName&&(perRoom&&gender || singleRoom)&&rent){
+        if(singleRoom){
+          gender = null;
+          perRoom = null;
+        }
         $http({
           method: 'POST',
           url: 'http://localhost:3000/apartment',
@@ -72,15 +87,18 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
         }).then(function() {
           $scope.getApartments();
         });
+      } else {
+        alert('Please fill out all information');
       }
-    } $scope.getApartments();
+    } else {
+      $scope.getApartments();
+    }
   };
 
   $scope.deleteApt = function(id) {
     var aptId = $scope.apartments.filter(function(value) {
       return(value.id === id);
     });
-    console.log(aptId[0].user_id);
     if($scope.loggedIn === aptId[0].user_id){
       $http({
         method: "POST",
@@ -117,4 +135,9 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
       $scope.specificApt = aptId[0];
     }
   };
+
+  $scope.marriedFilter = function() {
+    $scope.aptFilter.gender = undefined;
+  };
+
 });

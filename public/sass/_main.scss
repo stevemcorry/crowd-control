@@ -1,6 +1,6 @@
 main {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 .widen{
   width: 30vw !important;
@@ -10,57 +10,54 @@ main {
   transition: all .2s ease-in;
 
 }*/
-.input {
-  cursor: pointer;
-  cursor: default;
-  outline: none;
-  height: 3em;
-  width: 3em;
-  background-color: lightcoral;
-  border: none;
-  font-size: 1.3em;
-  text-align: center;
-  border-radius: 50%;
-  color: lightcoral;
-  transition: all .3s ease-in-out;
-}
-.input:focus {
-    width: 15vw;
-    padding-left: 1em;
-    padding-right: 2.5em;
-    transition: all .3s ease-in-out;
-    border-radius: 10px;
-    color: white;
-  }
-.leftBar, .rightBar{
-  width: 20vw;
-  height: auto;
-  margin-top: 85px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  transition: width .18s;
-}
-.specificApt{
+
+.rightBar{
+  display: fixed;
 }
 .meat {
 height: auto;
-width: 60vw;
+width: 95vw;
 margin-top: 85px;
+margin-bottom: 75px;
 border: 5px outset hsla(172, 68%, 77%, 0.51);
 border-radius: 5px;
 display: flex;
 justify-content: space-around;
 flex-wrap: wrap;
-align-items: flex-start;
+background: rgba(121, 210, 233, 0.73);
 }
 .boxApt{
-  height: 4.5em;
-  width: 7em;
+  height: 15em;
+  width: 200px;
   text-align: center;
-  font: 30px shanti;
-  border: 1px solid green;
+  font: 22px shanti;
+  border: 2px solid cyan;
+  border-radius: 4px;
   margin: 20px;
   padding: auto;
+  transition: all .1s ease-in-out;
+}
+.boxApt:hover{
+  width: 200px;
+  font-size: 22px;
+  border: 2px outset rgba(7, 80, 191, 0.64);
+}
+.aptDetails{
+  justify-content: space-between;
+  text-align: left;
+  font-size: 22px;
+  transition: all .3s ease;
+  color: grey;
+}
+.aptDetails:hover{
+  color: black;
+}
+.aptPicture{
+  height: 150px;
+  background-image: url('../img/up.jpg');
+  background-size: cover;
+}
+.pic{
+  object-fit: cover;
+  background-size: cover;
 }

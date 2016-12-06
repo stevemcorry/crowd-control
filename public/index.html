@@ -9,30 +9,27 @@
   font-family: 'Lora', serif;
   font-family: 'Shanti', sans-serif; -->
   <link href="https://fonts.googleapis.com/css?family=Dosis|Lora|Shanti" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
 </head>
 <body id="animate-area">
   <header>
     <p class="topTitle">CROWD CONTROL</p>
-    <button type="button" name="button" ui-sref='/'>Contracts</button>
-    <button type="button" name="button" ui-sref='home'>Ratings</button>
-    <button type="button" name="button" class="addApt" ng-click='loginCheck()'>Add Apartment</button>
+    <div class="married"><input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value=true ng-click='marriedFilter()'>Married Housing <br>
+    <input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value=false>Single Housing</div>
+    <div class="gender"><input type="radio" ng-model='aptFilter.gender' name='gender' value='Male' >Male <br>
+    <input type="radio" ng-model='aptFilter.gender' name='gender' value='Female'>Female</div>
+    <input class="input" ng-model='aptFilter.complex' placeholder="Apartment"/>
+    <!-- <input type="input" class="input" ng-model='aptFilter.rent' placeholder="Rent"/> -->
+    <select class="input" ng-model="rentOrder" ng-click="orderMe('rent')" placeholder="Rent">
+      <option value='' selected>Rent</option>
+      <option value="+">High</option>
+      <option value="">Low</option>
+    </select>
   </header>
     <ui-view>
       <main>
-      <div class="leftBar">
-        <input class="input" ng-model='aptFilter.name' placeholder="Name"/>
-        <input class="input" ng-model='aptFilter.complex' placeholder="Apartment"/>
-        <input class="input" ng-model='aptFilter.rent' placeholder="Rent"/>
-        <select class="input-medium" ng-model="rentOrder">
-          <option value="+">Descending</option>
-          <option value="">Ascending</option>
-        </select>
-      </div>
       <new-apt></new-apt>
-      <div class="rightBar">
-        <specific-apt></specific-apt>
-      </div>
       </main>
     </ui-view>
 
@@ -40,26 +37,29 @@
   <login-module></login-module>
 
   <footer>
-    <button class="footerLogin">Login</button>
-      <div class="logoList">
+    <button class="footerLogin" ng-click='loginShow()'>Login</button>
+    <button type="button" name="button" ui-sref='/'>Contracts</button>
+    <button type="button" name="button" ui-sref='ratings'>Ratings</button>
+    <button type="button" name="button" class="addApt" ng-click='loginCheck()'> Add Apartment</button>
+      <!-- <div class="logoList">
         <ul>
-        <li>
-          <div class="insta">
-            <img src="http://3835642c2693476aa717-d4b78efce91b9730bcca725cf9bb0b37.r51.cf1.rackcdn.com/Instagram_App_Large_May2016_200.png" class="logo" alt="" />
-          </div>
-        </li>
-        <li>
-          <div class="face">
-            <img src="http://1.bp.blogspot.com/-znUUXqw9F5o/URusQnMJssI/AAAAAAAAAB4/c9BA4pmq3hI/s1600/facebook+logo+4.jpg" class="logo" alt="" />
-          </div>
-        </li>
-        <li>
-          <div class="twiter">
-            <img src="http://3.bp.blogspot.com/-FzOCW1IiDi8/URutrOjOOKI/AAAAAAAAACY/lSnz5CqN73E/s400/Twitter+Logo+3.png" class="logo" alt="" />
-          </div>
-        </li>
-      </ul>
-    </div>
+          <li>
+            <div class="insta">
+              <img src="http://3835642c2693476aa717-d4b78efce91b9730bcca725cf9bb0b37.r51.cf1.rackcdn.com/Instagram_App_Large_May2016_200.png" class="logo" alt="" />
+            </div>
+          </li>
+          <li>
+            <div class="face">
+              <img src="http://1.bp.blogspot.com/-znUUXqw9F5o/URusQnMJssI/AAAAAAAAAB4/c9BA4pmq3hI/s1600/facebook+logo+4.jpg" class="logo" alt="" />
+            </div>
+          </li>
+          <li>
+            <div class="twiter">
+              <img src="http://3.bp.blogspot.com/-FzOCW1IiDi8/URutrOjOOKI/AAAAAAAAACY/lSnz5CqN73E/s400/Twitter+Logo+3.png" class="logo" alt="" />
+            </div>
+          </li>
+        </ul>
+      </div> -->
   </footer>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js'> </script>

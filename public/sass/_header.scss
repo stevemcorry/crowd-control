@@ -1,7 +1,7 @@
 header {
   width: 98%;
   height: 75px;
-  position: fixed;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,7 +13,7 @@ header {
 }
 .topTitle {
   display: inline-block;
-  font-family: shanti;
+  font-family: ubuntu;
   color: rgb(0, 60, 100);
   padding-left: 10px;
   font-size: 36px;
@@ -48,4 +48,61 @@ background: rgba(255, 255, 255, 0)
   padding: 10px 14px;
   margin: 14px;
   background: lightgreen;
+}
+.married, .gender{
+  font-family: ubuntu;
+  font-size: 1.1em;
+}
+.gender input{
+  height: 1.3em;
+  width: 2em;
+  transform: translate(5px, 3px);
+}
+.married input{
+  height: 1.3em;
+  width: 2em;
+  transform: translate(5px, 3px);
+}
+.input {
+  cursor: pointer;
+  font-family: ubuntu;
+  outline: none;
+  height: 2em;
+  width: 5em;
+  background-color: lightcoral;
+  border: none;
+  font-size: 1.3em;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  transition: all .3s ease-in-out;
+}
+.input:focus {
+    width: 15vw;
+    padding-left: 1em;
+    padding-right: 2.5em;
+    transition: all .3s ease-in-out;
+    border-radius: 10px;
+    color: white;
+  }
+  ::-webkit-input-placeholder{
+    color: white;
+  }
+.filters{
+  width: 20vw;
+  height: 80vh;
+  margin-top: 85px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  transition: width .18s;
+}
+@media (max-width: 930px) {
+.topTitle{
+  font-size: 20px;
+}
+
+
+
 }
