@@ -1,6 +1,7 @@
 var app = require('./server.js');
 var db = app.get('db');
-
+var config = require('./config.js');
+var sg = require('sendgrid')(config.sendgridKey);
 module.exports = ({
   getApartments: function(req,res,next) {
     db.get_apartments(function(err, products) {
@@ -47,6 +48,41 @@ module.exports = ({
     } else {console.log(req.body);
       console.log(req.session.currentUser.id);
     }
+  },
+
+  send: function(req,res,next) {
+
+    var helloEmail = function(from,to,subj,cont){
+      var helper = require('sendgrid').mail;
+
+      from_email = new helper.Email(from);
+      to_email = new helper.Email(to);
+      subject = subj;
+      content = new helper.Content("text/plain", cont);
+      mail = new helper.Mail(from_email, subject, to_email, content);
+      email = new helper.Email("test2@example.com");
+      mail.personalizations[0].addTo(email);
+
+      return mail.toJSON();
+    };
+
+    var sendEmail= function(toSend){
+      console.log(JSON.stringify(toSend, null, 2));
+
+      var requestBody = toSend;
+      var emptyRequest = require('sendgrid-rest').request;
+      var requestPost = JSON.parse(JSON.stringify(emptyRequest));
+      requestPost.method = 'POST';
+      requestPost.path = '/v3/mail/send';
+      requestPost.body = requestBody;
+      sg.API(requestPost, function (error, response) {
+        console.log(response);
+        res.send('Email Sent!');
+      });
+    };
+
+    sendEmail(helloEmail(req.body.from,req.body.to,req.body.subj,req.body.cont));
   }
+
 
 });

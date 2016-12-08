@@ -15,10 +15,6 @@ $(document).ready(function(){
 
 //Widens the Left and right columns
 
-  $('.leftBar, .rightBar').hover(function() {
-    $(this).toggleClass("widen");
-  });
-
 
 // $('.footerLogin').on('click',function() {
 //   $('.loginForm').css('display','flex');

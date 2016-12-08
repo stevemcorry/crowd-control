@@ -1,6 +1,11 @@
-main {
-  display: flex;
-  justify-content: space-around;
+// main {
+//   display: flex;
+//   justify-content: space-around;
+// }
+.backgrounds{
+  border: 5px outset hsla(172, 68%, 77%, 0.51);
+  border-radius: 5px;
+  background: rgba(121, 210, 233, 0.73);
 }
 .widen{
   width: 30vw !important;
@@ -10,35 +15,93 @@ main {
   transition: all .2s ease-in;
 
 }*/
-
-.rightBar{
-  display: fixed;
+.filters{
+  position: fixed;
+  transform: translate(0px , -11vh);
 }
+.leftBar{
+  display: flex;
+  width: 17.5vw;
+  height: 96vh;
+  justify-content: space-around;
+  align-items: flex-start;;
+  flex-direction: column;
+  @extend .backgrounds;
+}
+.topTitle {
+  display: inline-block;
+  font-family: ubuntu;
+  color: rgb(0, 60, 100);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+  transition: font-size 1s;
+}
+.married, .gender{
+  font-family: ubuntu;
+  font-size: 1.1em;
+}
+.gender input{
+  height: 1.3em;
+  width: 2em;
+  transform: translate(5px, 3px);
+}
+.married input{
+  height: 1.3em;
+  width: 2em;
+  transform: translate(5px, 3px);
+}
+.input {
+  cursor: pointer;
+  margin-left: 2vw;
+  font-family: ubuntu;
+  outline: none;
+  height: 2em;
+  width: 5em;
+  background-color: rgb(112, 148, 255);
+  border: none;
+  font-size: 1.3em;
+  text-align: center;
+  border-radius: 10px;;
+  color: white;
+  transition: all .3s ease-in-out;
+}
+.input:focus {
+    width: 8vw;
+    padding-left: 1em;
+    padding-right: 2.5em;
+    transition: all .3s ease-in-out;
+    border-radius: 10px;
+    color: white;
+  }
+  ::-webkit-input-placeholder{
+    color: white;
+  }
+
 .meat {
 height: auto;
-width: 95vw;
-margin-top: 85px;
-margin-bottom: 75px;
-border: 5px outset hsla(172, 68%, 77%, 0.51);
-border-radius: 5px;
+margin-left: 19.5vw;
+width: 76vw;
+margin-top: 1vw;
 display: flex;
 justify-content: space-around;
 flex-wrap: wrap;
-background: rgba(121, 210, 233, 0.73);
+@extend .backgrounds;
 }
 .boxApt{
   height: 15em;
-  width: 200px;
+  width: 220px;
   text-align: center;
   font: 22px shanti;
   border: 2px solid cyan;
   border-radius: 4px;
-  margin: 20px;
+  margin: 10px;
   padding: auto;
   transition: all .1s ease-in-out;
 }
 .boxApt:hover{
-  width: 200px;
   font-size: 22px;
   border: 2px outset rgba(7, 80, 191, 0.64);
 }
@@ -47,7 +110,7 @@ background: rgba(121, 210, 233, 0.73);
   text-align: left;
   font-size: 22px;
   transition: all .3s ease;
-  color: grey;
+  color: black;
 }
 .aptDetails:hover{
   color: black;
@@ -60,4 +123,22 @@ background: rgba(121, 210, 233, 0.73);
 .pic{
   object-fit: cover;
   background-size: cover;
+  width: 220px;
+}
+@media only screen and (max-width: 930px){
+.topTitle{
+  font-size: 30px;
+}
+.headerTitle{
+  display: inline-block;
+}
+.filters{
+  display: none;
+}
+.meat, header{
+  margin-left: 0px;
+  width: 95vw;
+}
+
+
 }

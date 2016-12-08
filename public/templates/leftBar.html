@@ -1,0 +1,16 @@
+<div class="filters">
+  <div class="leftBar">
+    <p class="topTitle" ng-click='aptFilter = undefined; order = "-id"; rentFilter = undefined'>CROWD CONTROL</p>
+    <div class="married"><input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value=true ng-click='aptFilter.gender = undefined'>Married Housing <br>
+    <input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value=false>Single Housing</div>
+    <div class="gender"><input type="radio" ng-model='aptFilter.gender' name='gender' value='Male' >Male <br>
+    <input type="radio" ng-model='aptFilter.gender' name='gender' value='Female'>Female</div>
+    <input class="input" ng-model='aptFilter.complex' placeholder="Apartment"/>
+    <input type="input" class="input" ng-model='rentFilter' placeholder="Rent"/>
+    <select class="input" ng-model="rentOrder" ng-click="orderMe('rent')" placeholder="Rent">
+      <option selected value=''>Rent</option>
+      <option value="+">High</option>
+      <option value=''>Low</option>
+    </select>
+  </div>
+</div>

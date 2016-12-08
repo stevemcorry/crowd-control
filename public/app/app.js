@@ -10,6 +10,20 @@ angular.module('myApp', ['ui.router'])
     });
     $urlRouterProvider.otherwise("/");
   })
+  .filter('myFilter', function() {
+    return function(input, rentFilter) {
+      if (rentFilter === undefined || rentFilter === "") {
+        rentFilter = 3000000000000;
+      }
+      var out = [];
+      angular.forEach(input, function(apt) {
+        if (apt.rent <= rentFilter) {
+          out.push(apt);
+        }
+      });
+      return out;
+    };
+  })
   .directive('newApt',function() {
     return {
       restrict: 'E',
@@ -52,6 +66,13 @@ angular.module('myApp', ['ui.router'])
           $('.aptForm').css('display','none');
         });
       }
+    };
+  })
+  .directive('leftBar',function() {
+    return {
+      restrict: 'E',
+      templateUrl: '../templates/leftBar.html'
+
     };
   })
   .directive('specificApt',function() {
