@@ -8,7 +8,7 @@ var sg = require('sendgrid')(config.sendgridKey);
 
 var app = module.exports = express();
 app.use(express.static(__dirname + '/../public'));
-var massiveInstance = massive.connectSync({connectionString: 'postgres://postgres:'+config.postgresPass+'@localhost/Contracts'});
+var massiveInstance = massive.connectSync({connectionString: 'postgres://postgres:'+config.postgresPass+'@localhost/contracts'});
 app.set('db', massiveInstance);
 var db = app.get('db');
 var corsOptions = {origin: 'config.IPAdress'};
