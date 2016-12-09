@@ -1,9 +1,11 @@
 angular.module('myApp').controller('mainCtrl', function($scope,$http) {
 
+var config = require('../../server/config.js');
+
   $scope.getApartments = function() {
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/apartments'
+      url: '/apartments'
     }).then(function(result) {
       $scope.apartments = result.data;
     });
@@ -14,7 +16,7 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
   $scope.getComplexes = function() {
     return $http({
       method: "GET",
-      url: 'http://localhost:3000/complexes'
+      url: '/complexes'
     }).then(function(result) {
       $scope.complexes = result.data;
     });
@@ -39,7 +41,7 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
     if(email && password && loginName){
       $http({
         method: 'POST',
-        url: 'http://localhost:3000/user',
+        url: '/user',
         data: {
           email: email,
           password: password,
@@ -105,7 +107,7 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
         }
         $http({
           method: 'POST',
-          url: 'http://localhost:3000/apartment',
+          url: '/apartment',
           data: {
             user:{
               id: $scope.loggedIn,
@@ -165,7 +167,7 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
     if(fromEmail&&toEmail&&subject&&content){
       $http({
         method: "POST",
-        url: "http://localhost:3000/email",
+        url: "/email",
         data: {
           from: fromEmail,
           to: toEmail,

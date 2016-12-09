@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/../public'));
 var massiveInstance = massive.connectSync({connectionString: 'postgres://postgres:'+config.postgresPass+'@localhost/Contracts'});
 app.set('db', massiveInstance);
 var db = app.get('db');
-var corsOptions = {origin: 'http://localhost:3000'};
+var corsOptions = {origin: 'config.IPAdress'};
 var serverCtrl = require('./serverCtrl.js');
 app.use(cors(corsOptions));
 app.use(session({
@@ -34,6 +34,6 @@ app.post('/apartment/delete', serverCtrl.deleteApt);
 app.post('/email', serverCtrl.send);
 
 
-app.listen(3000,function() {
+app.listen(80,function() {
   console.log('Here');
 });
