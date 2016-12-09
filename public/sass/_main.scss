@@ -76,7 +76,7 @@
     border-radius: 10px;
     color: white;
   }
-  ::-webkit-input-placeholder{
+::-webkit-input-placeholder{
     color: white;
   }
 
@@ -114,6 +114,18 @@ flex-wrap: wrap;
 }
 .aptDetails:hover{
   color: black;
+}
+.deleter{
+  cursor: pointer;
+}
+.deleter:hover{
+  color: red;
+}
+.emailer{
+  cursor: pointer;
+}
+.emailer:hover{
+  color: blue;
 }
 .aptPicture{
   height: 150px;

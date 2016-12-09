@@ -80,14 +80,17 @@ angular.module('myApp', ['ui.router'])
       restrict: "E",
       templateUrl: '../templates/specificApt.html',
       link: function(scope,element,attr) {
-
-        // $('.boxApt').on('mouseover', function() {
-        //   $('.aptDetails').css('display','block');
-        // });
-        // $('.boxApt').on('mouseleave', function() {
-        //   $('.aptDetails').css('display','none');
-        // });
-
+      }
+    };
+  })
+  .directive('emailModule',function() {
+    return {
+      restrict: "E",
+      templateUrl: '../templates/emailModule.html',
+      link: function() {
+        $('.close').on('click',function() {
+          $('.emailForm').css('display', 'none');
+        });
       }
     };
   });

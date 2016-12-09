@@ -1,0 +1,10 @@
+<div class="emailForm">
+  <form class="fillEmail">
+    <div class="close">X</div>
+    Email Contract Owner
+    <input type="text" class='loginEmail' ng-model='specificEmail'> To
+    <input type="text" class="loginName" ng-model='emailBody'> Body
+    <input type="email" class="loginPassword" ng-model='loggedInEmail'> From
+    <input type="submit" class="submitUser" ng-click='sendEmail(loggedInEmail, specificEmail,"Contract Crowd Control",emailBody)'>
+  </form>
+</div>

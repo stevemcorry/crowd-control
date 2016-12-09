@@ -2,6 +2,7 @@ var app = require('./server.js');
 var db = app.get('db');
 var config = require('./config.js');
 var sg = require('sendgrid')(config.sendgridKey);
+
 module.exports = ({
   getApartments: function(req,res,next) {
     db.get_apartments(function(err, products) {
@@ -33,34 +34,33 @@ module.exports = ({
     });
   },
   createApartment: function(req,res) {
-    if(req.session.currentUser){
-      db.create_apartment([req.session.currentUser.id, req.session.currentUser.name, req.body.complex, req.body.perRoom, req.body.singleRoom, req.body.gender, req.body.rent], function(err,apartment) {
+    if(req.body.user){
+      db.create_apartment([req.body.user.id, req.body.user.name, req.body.complex, req.body.perRoom, req.body.singleRoom, req.body.gender, req.body.rent], function(err,apartment) {
       res.send(apartment);
       });
     } else { res.send('nope'); }
   },
   deleteApt: function(req,res) {
-    if(req.session.currentUser.id === req.body.user_id){
-      db.delete_apartment([req.session.currentUser.id, req.body.id],function(err, apartment) {
+    if(req.body.user.id == req.body.user_id){
+      db.delete_apartment([req.body.user.id, req.body.id],function(err, apartment) {
         res.send(apartment);
-        console.log('deleted');
       });
     } else {console.log(req.body);
-      console.log(req.session.currentUser.id);
     }
   },
 
   send: function(req,res,next) {
+    console.log(req.body , 'here');
 
-    var helloEmail = function(from,to,subj,cont){
+    var helloEmail = function(){
       var helper = require('sendgrid').mail;
-
-      from_email = new helper.Email(from);
-      to_email = new helper.Email(to);
-      subject = subj;
-      content = new helper.Content("text/plain", cont);
+      from_email = new helper.Email(req.body.from);
+      to_email = new helper.Email(req.body.to);
+      subject = req.body.subj;
+      content = new helper.Content("text/plain", req.body.cont);
       mail = new helper.Mail(from_email, subject, to_email, content);
       email = new helper.Email("test2@example.com");
+      console.log(mail.toJSON());
       mail.personalizations[0].addTo(email);
 
       return mail.toJSON();
@@ -77,11 +77,11 @@ module.exports = ({
       requestPost.body = requestBody;
       sg.API(requestPost, function (error, response) {
         console.log(response);
-        res.send('Email Sent!');
+        res.send(error);
       });
     };
 
-    sendEmail(helloEmail(req.body.from,req.body.to,req.body.subj,req.body.cont));
+    sendEmail(helloEmail());
   }
 
 

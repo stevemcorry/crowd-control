@@ -161,6 +161,18 @@ button:hover {
 .aptDetails:hover {
   color: black; }
 
+.deleter {
+  cursor: pointer; }
+
+.deleter:hover {
+  color: red; }
+
+.emailer {
+  cursor: pointer; }
+
+.emailer:hover {
+  color: blue; }
+
 .aptPicture {
   height: 150px;
   background-image: url("../img/up.jpg");
@@ -256,7 +268,7 @@ button:hover {
   flex-direction: column; }
 
 .fillForm input {
-  background: #e8e8e8;
+  background: #7094ff;
   font-family: lora;
   width: 30vw;
   height: 3vh;
@@ -326,6 +338,47 @@ button:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto; }
+
+.emailForm {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */ }
+
+.fillEmail {
+  background-color: #fefefe;
+  margin: auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40vw;
+  height: 70vh;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column; }
+
+.fillEmail input {
+  background: #e8e8e8;
+  font-family: lora;
+  width: 30vw !important;
+  height: 5vh;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px; }
 
 body {
   box-sizing: border-box; }

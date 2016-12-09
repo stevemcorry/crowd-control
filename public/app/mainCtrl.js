@@ -49,10 +49,10 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
           if(result.data === 'nope'){
             alert('incorrect information');
           } else {
-            $scope.user = result.data;
             $scope.loggedIn = result.data.id;
             $scope.setCookie('id', result.data.id);
             $scope.setCookie('name', result.data.name);
+            $scope.setCookie('email',result.data.email);
             document.querySelector('.loginForm').style.display = 'none';
           }
         });
@@ -86,14 +86,18 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
   $scope.setUserId = function() {
     $scope.loggedIn = $scope.getCookie('id');
   };
+  $scope.setUserEmail = function() {
+    $scope.loggedInEmail = $scope.getCookie('email');
+  };
   $scope.setUser = function(){
     $scope.loggedInName = $scope.getCookie('name');
   };
   $scope.setUserId();
   $scope.setUser();
+  $scope.setUserEmail();
 
   $scope.addApt = function(complexName,perRoom,singleRoom,gender,rent){
-    if($scope.user){
+    if($scope.loggedInName&&$scope.loggedInEmail&&$scope.loggedIn){
       if(complexName&&(perRoom&&gender || singleRoom)&&rent){
         if(singleRoom){
           gender = null;
@@ -103,6 +107,11 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
           method: 'POST',
           url: 'http://localhost:3000/apartment',
           data: {
+            user:{
+              id: $scope.loggedIn,
+              name: $scope.loggedInName,
+              email: $scope.loggedInEmail
+            },
             user_id: 13,
             complex: complexName,
             perRoom: perRoom,
@@ -130,6 +139,11 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
         method: "POST",
         url: 'http://localhost:3000/apartment/delete',
         data: {
+          user:{
+            id: $scope.loggedIn,
+            name: $scope.loggedInName,
+            email: $scope.loggedInEmail
+          },
           id: id,
           user_id: aptId[0].user_id
         }
@@ -142,17 +156,27 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
     $scope.getApartments();
   };
 
+  $scope.emailShow = function(x) {
+    $scope.specificEmail = x;
+    document.querySelector('.emailForm').style.display = 'flex';
+  };
+
   $scope.sendEmail = function(fromEmail,toEmail,subject,content) {
-    $http({
-      method: "POST",
-      url: "http://localhost:3000/email",
-      body: {
-        from: fromEmail,
-        to: toEmail,
-        subj: subject,
-        cont: content
-      }
-    });
+    if(fromEmail&&toEmail&&subject&&content){
+      $http({
+        method: "POST",
+        url: "http://localhost:3000/email",
+        data: {
+          from: fromEmail,
+          to: toEmail,
+          subj: subject,
+          cont: content
+        }
+      });
+      document.querySelector('.emailForm').style.display = 'none';
+    } else {
+      alert('Please fill out all information');
+    }
   };
 
   $scope.detailedApt = function(id) {
