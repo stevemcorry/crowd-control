@@ -137,7 +137,7 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
     if($scope.loggedIn == aptId[0].user_id){
       $http({
         method: "POST",
-        url: 'http://localhost:3000/apartment/delete',
+        url: '/apartment/delete',
         data: {
           user:{
             id: $scope.loggedIn,
