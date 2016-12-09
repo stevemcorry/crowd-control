@@ -1,7 +1,5 @@
 angular.module('myApp').controller('mainCtrl', function($scope,$http) {
 
-var config = require('../../server/config.js');
-
   $scope.getApartments = function() {
     $http({
       method: 'GET',
