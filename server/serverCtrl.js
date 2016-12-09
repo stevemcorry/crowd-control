@@ -47,6 +47,7 @@ module.exports = ({
       });
     } else {console.log(req.body);
     }
+    
   },
 
   send: function(req,res,next) {
