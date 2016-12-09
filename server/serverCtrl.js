@@ -3,7 +3,7 @@ var db = app.get('db');
 var config = require('./config.js');
 var sg = require('sendgrid')(config.sendgridKey);
 
-module.exports = ({
+module.exports = {
   getApartments: function(req,res,next) {
     db.get_apartments(function(err, products) {
       res.send(products);
@@ -47,7 +47,7 @@ module.exports = ({
       });
     } else {console.log(req.body);
     }
-    
+
   },
 
   send: function(req,res,next) {
@@ -86,4 +86,4 @@ module.exports = ({
   }
 
 
-});
+};
