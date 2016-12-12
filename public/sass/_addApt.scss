@@ -25,10 +25,10 @@
 .fillForm input{
   background: rgb(112, 148, 255);
   font-family: lora;
-  width: 30vw;
+  width: 70%;
   height: 3vh;
   padding: 5px;
-  margin: 10px;
+  margin: auto;
   border-radius: 5px;
 }
 .submitApt{
@@ -41,7 +41,7 @@
     font-size: 28px;
     font-weight: bold;
     align-self: flex-end;
-    transform: translate(5px, -13px);
+    transform: translate(0px, -13px);
 }
 
 .close:hover,
@@ -51,6 +51,12 @@
     cursor: pointer;
 }
 .radio{
-  height: 20px !important;
-  width: 60px !important;
+  height: 15px !important;
+  width: 15px !important;
+}
+.radioInput {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    flex-wrap: wrap;
 }

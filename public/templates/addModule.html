@@ -60,11 +60,17 @@
       <option value="Winter Quarters">
       <option value="Aspen Ridge">
     </datalist><br>
-    <div><input class="radio" type="radio" ng-model='singleRoom' name='marriedHousing' value="Married Housing">Married Housing <br>
-    <input class="radio" type="radio" ng-model='singleRoom' name='marriedHousing' value="Single Housing">Single Housing</div>
+    <div class='radioInput'>
+      <div>
+        <input class="radio" type="radio" ng-model='singleRoom' name='marriedHousing' value="Married Housing">Married Housing <br>
+        <input class="radio" type="radio" ng-model='singleRoom' name='marriedHousing' value="Single Housing">Single Housing
+      </div>
+      <div>
+      <input class="radio" type="radio" ng-model='gender' name='gender' value='Female'>Female <br>
+      <input class="radio" type="radio" ng-model='gender' name='gender' value='Male'>Male
+      </div>
+    </div>
     <input type="number" class='submitPerRoom' placeholder='How many in your room?' min='1' max='4' ng-model='perRoom' ><br>
-    <div><input class="radio" type="radio" ng-model='gender' name='gender' value='Female'>Female <br>
-    <input class="radio" type="radio" ng-model='gender' name='gender' value='Male'>Male</div>
     <input class="submitRent"type="number" ng-model='rent' step="10" placeholder="Rent Per Month">
     <input type='submit' ng-click="addApt(complexName,perRoom,singleRoom,gender,rent)" class='submitApt' value='add Apt'>
   </form>

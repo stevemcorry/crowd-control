@@ -15,6 +15,9 @@
   transition: all .2s ease-in;
 
 }*/
+.welcome{
+  font: 36px ubuntu;
+}
 .filters{
   position: fixed;
   transform: translate(0px , -11vh);
@@ -137,20 +140,67 @@ flex-wrap: wrap;
   background-size: cover;
   width: 220px;
 }
-@media only screen and (max-width: 930px){
-.topTitle{
-  font-size: 30px;
-}
-.headerTitle{
-  display: inline-block;
-}
-.filters{
+.filtersMenu{
   display: none;
+  position: absolute;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+  width: 100%;
+  height: 100%
 }
-.meat, header{
-  margin-left: 0px;
-  width: 95vw;
+.filtersBar{
+  margin: auto;
+  display: flex;
+  width: 50%;
+  height: 96vh;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background: lightblue;
+  border: 5px solid lightblue;
+  border-radius: 5px;
 }
+@media only screen and (max-width: 930px){
+  .topTitle{
+    font-size: 30px;
+  }
+  .headerTitle{
+    display: inline-block;
+  }
+  .hamburgerMenu{
+    display: inline;
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
+  .filters{
+    display: none;
+  }
+  .meat, header{
+    margin: auto;
+    width: 95vw;
+  }
+  button{
+    font-size: 12px;
+    background: rgb(112, 148, 255);
+    border: none;
+    color: white;
+    padding: auto;
+    border-radius: 5px;
+  }
+  .fillForm{
+    width: 70% !important;
+  }
 
-
+}
+@media only screen and (max-width: 600px){
+  .headerButton{
+    display: none;
+  }
+  .headerTitle{
+    font-size: 35px;
+  }
+  .fillForm, .fillLogin, .fillEmail{
+    width: 80% !important;
+  }
 }

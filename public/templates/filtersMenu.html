@@ -1,5 +1,6 @@
-<div class="filters">
-  <div class="leftBar">
+<div class="filtersMenu">
+  <div class="filtersBar">
+    <div class="close" ng-click='closeFilters()'>X</div>
     <p class="topTitle" ng-click='aptFilter = undefined; order = "-id"; rentFilter = undefined'>CROWD CONTROL</p>
     <div class="married">
       <input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value='Married Housing' ng-click='aptFilter.gender = undefined'>Married Housing <br>

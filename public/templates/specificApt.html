@@ -2,9 +2,11 @@
   Seller: {{specificApt.name}} <br>
   <div class="emailer" ng-click='emailShow(specificApt.email)'>Sellers Email: {{specificApt.email}}</div>
   Apartment Complex: {{specificApt.complex}} <br>
-  Gender: {{specificApt.gender}} <br>
-  Persons per Room: {{specificApt.perroom}} <br>
-  Married Housing: {{specificApt.singleroom}} <br>
+  <div ng-show='specificApt.singleroom !== "Married Housing"'>
+    Gender: {{specificApt.gender}} <br>
+    Persons per Room: {{specificApt.perroom}} <br>
+  </div>
+  {{specificApt.singleroom}} <br>
   Monthly Rent: ${{specificApt.rent}}
   <div ng-click='deleteApt(specificApt.id)' class="deleter">Delete</div>
 </div>

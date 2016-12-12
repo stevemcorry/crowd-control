@@ -99,7 +99,7 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
   $scope.addApt = function(complexName,perRoom,singleRoom,gender,rent){
     if($scope.loggedInName&&$scope.loggedInEmail&&$scope.loggedIn){
       if(complexName&&(perRoom&&gender || singleRoom)&&rent){
-        if(singleRoom){
+        if(singleRoom === "Married Housing"){
           gender = null;
           perRoom = null;
         }
@@ -200,8 +200,8 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
   };
 
   $scope.marriedFilter = function() {
-    console.log($scope.aptFilter);
     $scope.aptFilter.gender = undefined;
+    $scope.aptFilter.perroom = undefined;
   };
 
   $scope.orderMe = function(x) {
@@ -210,6 +210,14 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
     }
     $scope.order = x;
     console.log($scope.rentOrder);
+  };
+
+  $scope.showFilters = function() {
+    document.querySelector('.filtersMenu').style.display = 'flex';
+  };
+
+  $scope.closeFilters = function() {
+    document.querySelector('.filtersMenu').style.display = 'none';
   };
 
   $scope.order = '-id';

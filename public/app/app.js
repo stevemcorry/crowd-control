@@ -4,6 +4,10 @@ angular.module('myApp', ['ui.router'])
     .state('/', {
       url: '/'
     })
+    .state('home',{
+      url: '/home',
+      templateUrl: 'views/home.html'
+    })
     .state('ratings', {
       url: '/ratings',
       templateUrl: 'views/ratings.html',
@@ -73,6 +77,12 @@ angular.module('myApp', ['ui.router'])
       restrict: 'E',
       templateUrl: '../templates/leftBar.html'
 
+    };
+  })
+  .directive('filtersMenu', function() {
+    return {
+      restrict: 'E',
+      templateUrl: '../templates/filtersMenu.html'
     };
   })
   .directive('specificApt',function() {

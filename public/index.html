@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app='myApp'>
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" name='viewport' content='width=device-width, initial-scale=1'>
   <title>Stephen Corry</title>
   <link rel="stylesheet" href="style.css" media="screen" title="no title">
   <fonts
@@ -13,20 +13,10 @@
 
 </head>
 <body id="animate-area" ng-controller='mainCtrl'>
-  <header>
-    <div class="headerTitle">Crowd Control</div>
-    <button class="footerLogin" ng-click='loginShow()'>Login</button>
-    <button type="button" name="button" ui-sref='/'>Contracts</button>
-    <button type="button" name="button" ui-sref='ratings'>Ratings</button>
-    <button type="button" name="button" class="addApt" ng-click='loginCheck()'> Add Apartment</button>
-  </header>
-  <left-bar></left-bar>
-    <ui-view>
-      <main>
-      <new-apt></new-apt>
-      </main>
-    </ui-view>
-
+  <ui-view>
+    <div class="welcome">Welcome to Crowd Control. The Housing Contract Flea Market.</div>
+    <div ui-sref='home'>Continue</div>
+  </ui-view>
  <add-module></add-module>
   <login-module></login-module>
   <email-module/>
