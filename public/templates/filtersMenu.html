@@ -1,18 +1,18 @@
 <div class="filtersMenu">
   <div class="filtersBar">
     <div class="close" ng-click='closeFilters()'>X</div>
-    <p class="topTitle" ng-click='aptFilter = undefined; order = "-id"; rentFilter = undefined'>CROWD CONTROL</p>
+    <p class="topTitle" ng-click='aptFilter = undefined; order = "-id"; order = "-id"; rentOrder =""; rentFilter = undefined'>CROWD CONTROL</p>
     <div class="married">
-      <input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value='Married Housing' ng-click='aptFilter.gender = undefined'>Married Housing <br>
-      <input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value='Single Housing'>Single Housing
+      <input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value='Married Housing' ng-checked="aptFilter.singleroom === 'Married Housing'" ng-click='aptFilter.gender = undefined'>Married Housing <br>
+      <input type="radio" ng-checked="aptFilter.singleroom === 'Single Housing'"ng-model='aptFilter.singleroom' name='marriedHousing' value='Single Housing'>Single Housing
     </div>
     <div class="married">
-      <input type="radio" ng-model='aptFilter.perroom' name='perRoom' value='1'>Solo Room<br>
-      <input type="radio" ng-model='aptFilter.perroom' name='perRoom' value='!1'>Shared Room
+      <input type="radio" ng-checked="aptFilter.perroom == 1" ng-model='aptFilter.perroom' name='perRoom' value='1'>Solo Room<br>
+      <input type="radio" ng-checked="aptFilter.perroom === '!1'" ng-model='aptFilter.perroom' name='perRoom' value='!1'>Shared Room
     </div>
     <div class="gender">
-      <input type="radio" ng-model='aptFilter.gender' name='gender' value='Male' >Male <br>
-      <input type="radio" ng-model='aptFilter.gender' name='gender' value='Female'>Female
+      <input type="radio" ng-checked="aptFilter.gender === 'Male'" ng-model='aptFilter.gender' name='gender' value='Male' >Male <br>
+      <input type="radio" ng-checked="aptFilter.gender === 'Female'" ng-model='aptFilter.gender' name='gender' value='Female'>Female
     </div>
     <input class="input" ng-model='aptFilter.complex' placeholder="Apartment"/>
     <input type="input" class="input" ng-model='rentFilter' placeholder="Highest Rent"/>

@@ -74,16 +74,14 @@
   border: none;
   font-size: 1.3em;
   text-align: center;
-  border-radius: 10px;;
+  border-radius: 10px;
   color: white;
   transition: all .3s ease-in-out;
 }
 .input:focus {
-    width: 8vw;
-    padding-left: 1em;
-    padding-right: 2.5em;
     transition: all .3s ease-in-out;
-    border-radius: 10px;
+    border-radius: 5px;
+    background: rgb(0, 43, 153);
     color: white;
   }
 ::-webkit-input-placeholder{
