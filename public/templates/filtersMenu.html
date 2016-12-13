@@ -16,10 +16,14 @@
     </div>
     <input class="input" ng-model='aptFilter.complex' placeholder="Apartment"/>
     <input type="input" class="input" ng-model='rentFilter' placeholder="Rent"/>
-    <select class="input" ng-model="rentOrder" ng-click="orderMe('rent')" placeholder="Rent">
+    <!-- <select class="input" ng-model="rentOrder" ng-click="orderMe('rent')" placeholder="Rent">
       <option selected value=''>Rent</option>
       <option value="+">High</option>
       <option value=''>Low</option>
-    </select>
+    </select> -->
+    <div class="menuOptions">
+      <button class="footerLogin" ng-click='loginShow()'>Login</button>
+      <button type="button" name="button" class="addApt" ng-click='loginCheck()'> Add Apartment</button>
+    </div>
   </div>
 </div>

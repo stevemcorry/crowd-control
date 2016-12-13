@@ -17,6 +17,13 @@
 }*/
 .welcome{
   font: 36px ubuntu;
+  text-align: center;
+  margin-top: 20%;
+}
+.startButton{
+  cursor: pointer;
+  font: 30px ubuntu;
+  text-align: center;
 }
 .filters{
   position: fixed;
@@ -151,7 +158,7 @@ flex-wrap: wrap;
 .filtersBar{
   margin: auto;
   display: flex;
-  width: 50%;
+  width: 70%;
   height: 96vh;
   justify-content: space-around;
   align-items: center;
@@ -160,11 +167,12 @@ flex-wrap: wrap;
   border: 5px solid lightblue;
   border-radius: 5px;
 }
+.menuOptions{
+  display: none;
+}
 @media only screen and (max-width: 930px){
-  .topTitle{
-    font-size: 30px;
-  }
   .headerTitle{
+    font-size: 30px;
     display: inline-block;
   }
   .hamburgerMenu{
@@ -194,13 +202,24 @@ flex-wrap: wrap;
 
 }
 @media only screen and (max-width: 600px){
-  .headerButton{
-    display: none;
-  }
   .headerTitle{
     font-size: 35px;
+  }
+  .topTitle{
+    font-size: 30px;
   }
   .fillForm, .fillLogin, .fillEmail{
     width: 80% !important;
   }
+  .headerButton{
+    display: none;
+  }
+  .menuOptions{
+    display: flex;
+  }
+  button{
+    font-size: 12px;
+    margin: 10px;
+  }
+
 }

@@ -209,15 +209,17 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
       console.log('ok');
     }
     $scope.order = x;
-    console.log($scope.rentOrder);
+    console.log(x);
   };
 
   $scope.showFilters = function() {
     document.querySelector('.filtersMenu').style.display = 'flex';
+    document.querySelector('body').style.overflow = 'hidden';
   };
 
   $scope.closeFilters = function() {
     document.querySelector('.filtersMenu').style.display = 'none';
+    document.querySelector('body').style.overflow = 'scroll';
   };
 
   $scope.order = '-id';
