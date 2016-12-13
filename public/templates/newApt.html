@@ -1,5 +1,5 @@
 <div class="meat" >
-  <div class="boxApt" ng-repeat="apt in apartments | filter : aptFilter | myFilter: rentFilter | orderBy: order: rentOrder"
+  <div class="boxApt" ng-repeat="apt in apartments | filter : aptFilter:true | myFilter: rentFilter | orderBy: order: rentOrder"
    ng-mouseover='detailApt(apt.id); details=true' ng-mouseleave='details=false'>
     <div class="apt" ng-hide='details'>
       <div class="aptPicture">

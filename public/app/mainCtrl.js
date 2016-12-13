@@ -98,7 +98,7 @@ angular.module('myApp').controller('mainCtrl', function($scope,$http) {
 
   $scope.addApt = function(complexName,perRoom,singleRoom,gender,rent){
     if($scope.loggedInName&&$scope.loggedInEmail&&$scope.loggedIn){
-      if(complexName&&(perRoom&&gender || singleRoom)&&rent){
+      if(complexName&&rent&&((perRoom&&gender&&singleRoom === 'Single Housing')|| singleRoom === 'Married Housing')){
         if(singleRoom === "Married Housing"){
           gender = null;
           perRoom = null;
