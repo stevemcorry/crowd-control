@@ -14,9 +14,9 @@
       <input type="radio" ng-model='aptFilter.gender' name='gender' value='Female'>Female
     </div>
     <input class="input" ng-model='aptFilter.complex' placeholder="Apartment"/>
-    <input type="input" class="input" ng-model='rentFilter' placeholder="Rent"/>
-    <select class="input" ng-model="rentOrder" ng-click="orderMe('rent')" placeholder="Rent">
-      <option selected value=''>Rent</option>
+    <input type="input" class="input" ng-model='rentFilter' placeholder="Highest Price"/>
+    <select class="input" ng-model="rentOrder" ng-click="orderMe('rent'); order='rent'" placeholder="Rent">
+      <option selected value=''>Rent Order</option>
       <option value="+">High</option>
       <option value=''>Low</option>
     </select>

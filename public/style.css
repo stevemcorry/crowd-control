@@ -120,7 +120,7 @@ button:hover {
   font-family: ubuntu;
   outline: none;
   height: 2em;
-  width: 5em;
+  width: 12vw;
   background-color: #7094ff;
   border: none;
   font-size: 1.3em;
@@ -215,6 +215,9 @@ button:hover {
   background: lightblue;
   border: 5px solid lightblue;
   border-radius: 5px; }
+
+.filtersBar .input {
+  width: 50%; }
 
 .menuOptions {
   display: none; }
