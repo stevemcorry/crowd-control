@@ -34,6 +34,6 @@ app.post('/apartment/delete', serverCtrl.deleteApt);
 app.post('/email', serverCtrl.send);
 
 
-app.listen(80,function() {
+app.listen(3000,function() {
   console.log('Here');
 });
