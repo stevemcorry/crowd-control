@@ -1,4 +1,5 @@
 angular.module('myApp').controller('mainCtrl', function($scope,$http) {
+  console.log('Stop looking at my code');
 
   $scope.getApartments = function() {
     $http({
