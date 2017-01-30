@@ -1,3 +1,5 @@
+$primary-color: #735cfb;
+
 @import "header";
 @import "main";
 @import 'login';
@@ -6,13 +8,15 @@
 @import "ratings";
 @import "email";
 
+
 body {
   box-sizing: border-box;
   margin: auto;
 }
-#animate-area {
-	background-image: url(./img/cloudsBack.png);
+#animate-area{
+	//background-image: url(./img/cloudsBack.png);
 	background-position: 0px 0px;
 	background-repeat: repeat;
   background-size: 120vw;
+  background: #f7faff;
 }

@@ -1,11 +1,11 @@
 angular.module('myApp', ['ui.router'])
   .config(function($urlRouterProvider, $stateProvider) {
     $stateProvider
-    .state('/', {
-      url: '/'
+    .state('home', {
+      url: '/home'
     })
-    .state('home',{
-      url: '/home',
+    .state('/',{
+      url: '/',
       templateUrl: 'views/home.html'
     })
     .state('ratings', {

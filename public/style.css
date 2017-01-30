@@ -26,7 +26,7 @@ header {
   display: none; }
 
 button {
-  background: #7094ff;
+  background: #735cfb;
   border: none;
   color: white;
   font-size: 16px;
@@ -55,9 +55,7 @@ button:hover {
   background: lightgreen; }
 
 .backgrounds, header, .leftBar, .meat {
-  border: 5px outset rgba(156, 236, 226, 0.51);
-  border-radius: 5px;
-  background: rgba(121, 210, 233, 0.73); }
+  border-radius: 5px; }
 
 .widen {
   width: 30vw !important; }
@@ -78,15 +76,14 @@ button:hover {
   text-align: center; }
 
 .filters {
-  position: fixed;
-  transform: translate(0px, -11vh); }
+  position: fixed; }
 
 .leftBar {
   display: flex;
   width: 17.5vw;
   height: 96vh;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column; }
 
 .topTitle {
@@ -121,7 +118,7 @@ button:hover {
   outline: none;
   height: 2em;
   width: 12vw;
-  background-color: #7094ff;
+  background-color: #735cfb;
   border: none;
   font-size: 1.3em;
   text-align: center;
@@ -148,13 +145,12 @@ button:hover {
   flex-wrap: wrap; }
 
 .boxApt {
-  height: 15em;
-  width: 220px;
+  width: 24%;
   text-align: center;
   font: 22px shanti;
-  border: 2px solid cyan;
+  border: 2px solid lightgrey;
   border-radius: 4px;
-  margin: 10px;
+  margin-top: 5px;
   padding: auto;
   transition: all .1s ease-in-out; }
 
@@ -192,7 +188,8 @@ button:hover {
 .pic {
   object-fit: cover;
   background-size: cover;
-  width: 220px; }
+  width: 100%;
+  height: 100%; }
 
 .filtersMenu {
   display: none;
@@ -456,7 +453,7 @@ body {
   margin: auto; }
 
 #animate-area {
-  background-image: url(./img/cloudsBack.png);
   background-position: 0px 0px;
   background-repeat: repeat;
-  background-size: 120vw; }
+  background-size: 120vw;
+  background: #f7faff; }
