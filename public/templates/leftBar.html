@@ -1,7 +1,7 @@
 <div class="filters">
   <div class="leftBar">
     <p class="topTitle" ng-click='aptFilter = undefined; order = "-id"; rentOrder =""; rentFilter = undefined'>CROWD CONTROL</p>
-    <div class="married">
+    <!--<div class="married">
       <input type="radio" ng-model='aptFilter.singleroom' name='marriedHousing' value='Married Housing' ng-checked="aptFilter.singleroom === 'Married Housing'" ng-click='aptFilter.gender = undefined'>Married Housing <br>
       <input type="radio" ng-checked="aptFilter.singleroom === 'Single Housing'"ng-model='aptFilter.singleroom' name='marriedHousing' value='Single Housing'>Single Housing
     </div>
@@ -16,17 +16,15 @@
     <input class="input" ng-model='aptFilter.complex' placeholder="Apartment"/>
     <input type="input" class="input" ng-model='rentFilter' placeholder="Highest Price"/>
     <select class="input" ng-model="rentOrder" ng-click="orderMe('rent'); order='rent'" placeholder="Rent">
-      <!-- <option selected value=''>Rent Order</option> -->
       <option value="+">High to Low</option>
       <option value=''>Low to High</option>
-    </select>
-    <header>
-      <div class="headerTitle">Crowd Control</div>
-      <button class="footerLogin headerButton" ng-click='loginShow()'>Login</button>
-      <button class='headerButton' type="button" name="button" ui-sref='home'>About</button>
-      <!-- <button type="button" name="button" ui-sref='ratings'>Ratings</button> -->
-      <button type="button" name="button" class="addApt headerButton" ng-click='loginCheck()'> Add Apartment</button>
-      <img src="./img/hamburger.jpg" alt="Menu" class='hamburgerMenu' ng-click='showFilters()'>
-    </header>
+    </select> -->
+    <button ng-click='showFilters()'>Filters</button>
+    <div class="headerTitle">Crowd Control</div>
+    <button class="footerLogin headerButton" ng-click='loginShow()'>Login</button>
+    <button class='headerButton' type="button" name="button" ui-sref='home'>About</button>
+    <!-- <button type="button" name="button" ui-sref='ratings'>Ratings</button> -->
+    <button type="button" name="button" class="addApt headerButton" ng-click='loginCheck()'> Add Apartment</button>
+    <!-- <img src="./img/hamburger.jpg" alt="Menu" class='hamburgerMenu' ng-click='showFilters()'> -->
   </div>
 </div>

@@ -1,8 +1,8 @@
 header {
+  display: none;
   width: 76vw;
   margin-left: 19.5vw;
   height: 10vh;
-  display: flex;
   position: relative;
   align-items: center;
   justify-content: space-around;
@@ -218,6 +218,10 @@ button:hover {
   display: none; }
 
 @media only screen and (max-width: 930px) {
+  header {
+    display: flex; }
+  .boxApt {
+    width: 225px; }
   .headerTitle {
     font-size: 30px;
     display: inline-block; }

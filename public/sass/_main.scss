@@ -173,6 +173,12 @@ flex-wrap: wrap;
   display: none;
 }
 @media only screen and (max-width: 930px){
+  header {
+    display: flex;
+  }
+  .boxApt{
+    width: 225px;
+  }
   .headerTitle{
     font-size: 30px;
     display: inline-block;

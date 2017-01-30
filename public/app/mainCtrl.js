@@ -1,5 +1,5 @@
 angular.module('myApp').controller('mainCtrl', function($scope,$http) {
-  console.log('Stop looking at my code');
+  console.log('Contact the developer: stevecorry.com');
 
   $scope.getApartments = function() {
     $http({
